@@ -1,0 +1,65 @@
+<h1>Hello my name is {{name}}</h1>
+<h2>I'm {{age}} years old</h2>
+<h3>Here's my address, in case you want to stalk me: </h3>
+
+<ul>
+    <li>Street {{address.street}}</li>
+    <li>City {{address.city}}</li>
+    <li>State {{address.state}}</li>
+</ul>
+
+<h1>Edit User</h1>
+
+<form method="get" accept-charset="utf-8">
+
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" [(ngModel)]="name" name="name">
+    </div>
+
+    <div>
+        <label for="age">Age:</label>
+        <input type="number" [(ngModel)]="age" name="age">
+    </div>
+
+    <div>
+        <label for="street">Street:</label>
+        <input type="text"[(ngModel)]="address.street" name="street">
+    </div>
+
+    <div>
+        <label for="city">City:</label>
+        <input type="text"[(ngModel)]="address.city" name="city">
+    </div>
+
+    <div>
+        <label for="state">State:</label>
+        <input type="text"[(ngModel)]="address.state" name="state">
+    </div>
+
+</form>
+
+<h3>Also, Check out my hobbies: </h3>
+
+<form (submit)="addHobby(hobby.value)" method="get" accept-charset="utf-8">
+
+    <div>
+        <label for="hobby">Hobby</label>
+        <input type="text" #hobby>
+    </div>
+
+</form>
+
+<ul>
+    <li *ngFor="let hobby of hobbies; let i = index">{{i + 1}} - {{hobby}}
+        <button (click)="deleteHobby()">X</button>
+    </li>
+</ul>
+
+<ul>
+    <li *ngFor="let character of characters">
+        <strong>Name:</strong> {{character.name}}
+        <strong>Age:</strong> {{character.age}}
+        <strong>Job:</strong> {{character.occupation}}
+    </li>
+</ul>
